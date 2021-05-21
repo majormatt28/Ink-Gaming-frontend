@@ -1,6 +1,8 @@
-import Home from "./Home";
+import LandingPage from "./LandingPage";
 import PostContainer from "./PostContainer";
 import PostShow from './PostShow'
+import Login from './Login'
+import Signup from './Signup'
 // import Profile from "./Profile";
 import {Switch, Route} from "react-router-dom";
 
@@ -11,7 +13,7 @@ function App() {
     <div className="App">
      <Switch>
       <Route exact path= "/">
-        <Home />
+        <LandingPage />
       </Route>
       <Route exact path="/posts/:id/">
         <PostShow />
@@ -21,6 +23,13 @@ function App() {
       </Route>
       {/* <Profile /> */}
      
+     <Route exact path="/login">
+      <Login />
+     </Route>
+
+     <Route exact path="/signup">
+       <Signup />
+     </Route>
      </Switch>
     </div>
   );

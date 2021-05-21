@@ -1,10 +1,13 @@
-import CommentForm from "./CommentForm";
-import CommentDetail from "./CommentDetail";
+import React, { useState } from 'react'
+
 
 function PostDetail () {
+
+
     return (
-        <CommentDetail />,
-        <CommentForm />
+      <div>
+          hello
+      </div>
     );
 }
 

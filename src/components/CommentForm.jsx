@@ -1,15 +1,7 @@
 import { useState } from "react";
 
 function CommentForm () {
-    const [comment, setComment] = useState("")
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        setComment("")
-
-        
-    }
-
+    
     return (
         <div>
             <h2>Leave a comment here:</h2>

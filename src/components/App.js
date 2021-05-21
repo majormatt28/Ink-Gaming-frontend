@@ -1,6 +1,7 @@
 import Home from "./Home";
 import PostContainer from "./PostContainer";
-import Profile from "./Profile";
+import PostShow from './PostShow'
+// import Profile from "./Profile";
 import {Switch, Route} from "react-router-dom";
 
 
@@ -12,10 +13,13 @@ function App() {
       <Route exact path= "/">
         <Home />
       </Route>
-      
+      <Route exact path="/posts/:id/">
+        <PostShow />
+      </Route>
+      <Route exact path ="/posts/">
       <PostContainer />
-      
-      <Profile />
+      </Route>
+      {/* <Profile /> */}
      
      </Switch>
     </div>

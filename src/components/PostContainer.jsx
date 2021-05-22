@@ -1,16 +1,22 @@
 import PostCard from './PostCard'
 import CreatePost from './CreatePost'
 import { useEffect, useState } from 'react';
+import { useParams } from 'react-router';
 
 
 function PostContainer () {
     const [allPosts, setAllPosts] = useState([])
-    console.log(allPosts)
+
+
+    // console.log(allPosts)
+
     useEffect(() => {
-        fetch('http://localhost:3001/posts')
+        fetch(`http://localhost:3001/posts`)
         .then(r => r.json())
         .then(setAllPosts)
     }, [])
+
+    
 
     const postCards = allPosts.map(post => {
         return (
@@ -22,10 +28,15 @@ function PostContainer () {
     })
 
     return (
+        <>
         <div>
-            {postCards}
             <CreatePost />
         </div>
+        <div className="post-cards-container">
+            {postCards}
+        </div>
+
+        </>
     );
 }
 

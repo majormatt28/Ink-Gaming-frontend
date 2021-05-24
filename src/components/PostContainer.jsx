@@ -1,14 +1,14 @@
 import PostCard from './PostCard'
 import CreatePost from './CreatePost'
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router';
+// import { useParams } from 'react-router';
 
 
-function PostContainer () {
+function PostContainer ({currentUser}) {
     const [allPosts, setAllPosts] = useState([])
+    console.log(currentUser)
 
-
-    // console.log(allPosts)
+    console.log(allPosts)
 
     useEffect(() => {
         fetch(`http://localhost:3001/posts`)
@@ -19,6 +19,7 @@ function PostContainer () {
     
 
     const postCards = allPosts.map(post => {
+        console.log(post)
         return (
             <PostCard 
             key={post.id}
@@ -30,7 +31,7 @@ function PostContainer () {
     return (
         <>
         <div>
-            <CreatePost />
+            <CreatePost allPosts={allPosts} setAllPosts={setAllPosts} currentUser={currentUser}/>
         </div>
         <div className="post-cards-container">
             {postCards}

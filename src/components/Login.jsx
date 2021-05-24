@@ -10,25 +10,36 @@ function Login ({ setCurrentUser }) {
     const handleSubmit = (e) => {
         e.preventDefault()
 
+        console.log("username", username)
+        console.log("password", password)
+        console.log(JSON.stringify({username, password}))
+
         fetch("http://localhost:3001/login", {
             method: "POST",
-            headers: {"Content-Type": "application/json"},
+            headers: 
+                {
+                "Content-Type": "application/json",
+                Accept: 'application/json', 
+            },
             body: JSON.stringify({ username, password })
         })
-        .then(r => {
-            return r.json().then(data => {
-                if (r.ok) {
+        .then(resp => {
+            console.log("login response",resp)
+            return resp.json().then(data => {
+                console.log(data)
+                if (resp.ok) {
                     return data
                 } else {
                     throw data
                 }
             })
         })
-        .then (data => {
-            // console.log(data)
-            const {user, token} = data
+        .then (userInfo => {
+            console.log(userInfo)
+            const {username, token} = userInfo
             localStorage.setItem("token", token)
-            setCurrentUser(user)
+            localStorage.user_id = userInfo.id
+            setCurrentUser(username)
             history.push('/posts')
         })
         .catch(error => setErrors(error.errors))
@@ -51,6 +62,7 @@ function Login ({ setCurrentUser }) {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 />
+                {errors.map(error=><h3 style={{color:"black"}} key={error}>{error}</h3>)}
                 <br/>
                 <button type="submit">Login</button>
             </form>

@@ -1,4 +1,4 @@
-function UpdateForm () {
+function UpdatePostForm () {
     return (
         <section>
             <h2>
@@ -8,4 +8,4 @@ function UpdateForm () {
     );
 }
 
-export default UpdateForm;
+export default UpdatePostForm;

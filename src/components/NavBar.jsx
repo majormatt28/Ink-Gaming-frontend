@@ -14,11 +14,13 @@ function NavBar ({currentUser, setCurrentUser}) {
                {currentUser? (
                    <div>
                    <NavLink className="button" to="/posts">
-                       Return to All Posts
+                       Main Page
                    </NavLink>
+                   <br/>
                    <NavLink className="button" to="/profile">
-                        
+                        Profile Page
                    </NavLink>
+                   <br/>
                    <button onClick={logout}>Logout</button>
                    </div>
                ):(

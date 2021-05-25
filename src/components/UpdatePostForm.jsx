@@ -1,25 +1,31 @@
 import { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router';
-import PostCard from './PostCard'
 
-function UpdatePostForm ({removePost, currentUser}) {
-    let history =useHistory()
-    const { id } =useParams()
-    const [postData, setPostData] = useState([])
+
+function UpdatePostForm ({removePost, currentUser, allPosts, setAllPosts}) {
+    // let history =useHistory()
+    const { id } = useParams()
+    // const [postData, setPostData] = useState({
+    //     title: "",
+    //     link: "",
+    //     media_type: "null",
+    //     content: "",
+    //     user_id: currentUser.id
+    // })
+
     const [formData, setFormData] = useState({
         title: "",
         link: "",
         media_type: "null",
         content: "",
-        user_id: currentUser.id,
+        user_id: currentUser.id
     })
-    const [errors, setErrors] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:3000/posts/${id}`)
+        fetch(`http://localhost:3001/posts/${id}`)
         .then(resp => resp.json())
         .then(data => {
-            setPostData(data)
+            // setPostData(data)
             setFormData(data)
         })
     }, [id])
@@ -31,23 +37,27 @@ function UpdatePostForm ({removePost, currentUser}) {
         })
     }
 
+    function updateAllPosts(id, updatedPost) {
+        const index = allPosts.find(post => post.id === id)
+        const updatedPosts = [...allPosts]
+        updatedPosts.splice(index, 1, updatedPost)
+        setAllPosts(updatedPosts)
+    }
+
     function handleSubmit(e) {
         e.preventDefault()
         fetch(`http://localhost:3001/posts/${id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
-                Accept: 'application/json'
+                "Accept": 'application/json'
             },
             body: JSON.stringify(formData)
         })
         .then(resp => resp.json())
         .then(postUpdate => {
-            if(postUpdate.id) {
-                history.push(`/posts/${id}`)
-            } else {
-                setErrors(postUpdate)
-            }
+            updateAllPosts(id,postUpdate)
+            // console.log(postUpdate)
         })
     }
 

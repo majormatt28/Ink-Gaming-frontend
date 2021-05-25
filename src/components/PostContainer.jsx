@@ -1,6 +1,6 @@
 import PostCard from './PostCard'
 import CreatePost from './CreatePost'
-import { useState } from 'react';
+
 // import { useParams } from 'react-router';
 
 function PostContainer ({currentUser, allPosts, setAllPosts, removePost}) {
@@ -8,7 +8,8 @@ function PostContainer ({currentUser, allPosts, setAllPosts, removePost}) {
     const postCards = allPosts.map(post => {
         console.log(post)
         return (
-            <PostCard 
+            <PostCard
+            currentUser={currentUser} 
             key={post.id}
             removePost={removePost}
             {...post}

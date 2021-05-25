@@ -38,11 +38,13 @@ function Login ({ setCurrentUser }) {
             console.log(userInfo)
             const {username, token} = userInfo
             localStorage.setItem("token", token)
-            localStorage.user_id = userInfo.id
+            // localStorage.user_id = userInfo.id
             setCurrentUser(username)
             history.push('/posts')
         })
-        .catch(error => setErrors(error.errors))
+        .catch(error => {
+            setErrors(error.errors)
+        })
     } 
 
     return (

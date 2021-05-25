@@ -35,7 +35,9 @@ function Signup ({ setCurrentUser }) {
             setCurrentUser(user)
             history.push("/login")
         })
-        .catch(error => setErrors(error.errors))
+        .catch(error => {
+            setErrors(error.errors)
+        })
     }
 
     return (

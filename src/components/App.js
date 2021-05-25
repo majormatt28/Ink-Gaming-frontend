@@ -20,7 +20,7 @@ function App() {
 
     fetch ("http://localhost:3001/me", {
       headers: {
-        "Authorization": `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
       },
     })
       .then(r => r.json())
@@ -63,7 +63,7 @@ function App() {
       </Route>
 
       <Route exact path ="/posts/:id/edit">
-        <UpdatePostForm removePost={removePost} currentUser={currentUser}/>
+        <UpdatePostForm removePost={removePost} currentUser={currentUser} allPosts={allPosts} setAllPosts={setAllPosts}/>
       </Route>
 
      <Route exact path="/signup">
@@ -77,8 +77,6 @@ function App() {
       <Route exact path="/profile">
       <Profile currentUser={currentUser} setCurrentUser={setCurrentUser} />
       </Route>
-
-
 
      </Switch>
     </div>

@@ -50,7 +50,6 @@ function CreatePost ({allPosts, setAllPosts, currentUser}) {
 
     return (
         <div>
-            
         <form onSubmit={handleSubmit}>
             <label>Title: </label><br/>
             <input type="text" name="title" onChange={handleChange}/><br/>

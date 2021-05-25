@@ -61,10 +61,10 @@ function CreatePost ({allPosts, setAllPosts, currentUser}) {
                 <option value="text">Text</option>
             </select><br/>
             <label>Link: </label>
-            <input 
+            <textarea 
             type="text" 
             name="link" 
-            // value={formData.link}
+            value={formData.link}
             onChange={handleChange}
             />
             <br/>

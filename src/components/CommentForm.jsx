@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function CommentForm () {
+function CommentForm ({comments, post_id, setComments}) {
     
     return (
         <div>

@@ -1,1 +1,48 @@
+body {
+    background-color: midnightblue;
+}
 
+nav {
+    width: 100%;
+    min-height: 80px;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #111;
+    position: relative;
+}
+
+img {
+    width: 60%;
+    height: 550px;
+    vertical-align: middle;
+}
+
+.post-container{
+    text-align: center;
+    padding: 10px 20px;
+    display: inline-grid;
+    position: absolute;
+    margin-left: 53rem;
+    justify-content: space-between;
+}
+
+.post-card {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    border: 1px solid rgb(149, 175, 197);
+    margin-bottom: 15px;
+    background-color: black;
+    border-radius: 1.5%;
+    width: 50%;
+}
+
+h2 {
+    text-align: center;
+}
+
+p {
+    color: white;
+}

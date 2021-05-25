@@ -7,10 +7,12 @@ import NavBar from './NavBar'
 import Profile from "./Profile";
 import {Switch, Route} from "react-router-dom";
 import { useEffect, useState } from "react";
+import UpdatePostForm from './UpdatePostForm'
 
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null)
+  const [allPosts, setAllPosts] = useState([])
   console.log("current user", currentUser)
   
   useEffect (() => {
@@ -27,6 +29,21 @@ function App() {
       })
   }, []);
 
+    console.log(currentUser)
+
+    console.log(allPosts)
+
+    useEffect(() => {
+        fetch(`http://localhost:3001/posts`)
+        .then(r => r.json())
+        .then(setAllPosts)
+    }, [])
+
+    function removePost(id) {
+        const filteredPosts = allPosts.filter(post => post.id !==id)
+        setAllPosts(filteredPosts)
+    }
+
   return (
     <div className="App">
      
@@ -38,13 +55,17 @@ function App() {
       </Route>
 
       <Route exact path="/posts/:id/">
-        <PostShow currentUser={currentUser}/>
+        <PostShow removePost={removePost} currentUser={currentUser}/>
       </Route>
 
       <Route exact path ="/posts/">
-      <PostContainer currentUser={currentUser}/>
+      <PostContainer removePost={removePost} currentUser={currentUser} allPosts={allPosts} setAllPosts={setAllPosts}/>
       </Route>
-      
+
+      <Route exact path ="/posts/:id/edit">
+        <UpdatePostForm removePost={removePost} currentUser={currentUser}/>
+      </Route>
+
      <Route exact path="/signup">
        <Signup setCurrentUser={setCurrentUser}/>
      </Route>

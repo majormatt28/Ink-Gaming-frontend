@@ -1,7 +1,7 @@
 import {Link} from 'react-router-dom'
 
-function PostCard ({ id, title, content, link, username, media_type, user_id }) {
-    
+function PostCard ({ id, title, content, link, username, media_type, user_id, removePost}) {
+    console.log(username)
     console.log(media_type)
     let mediaContent 
 
@@ -12,11 +12,19 @@ function PostCard ({ id, title, content, link, username, media_type, user_id }) 
         mediaContent = <div dangerouslySetInnerHTML={{__html: link}}></div>
     }
     
-    console.log(mediaContent)
-    console.log(media_type)
+    function handleDelete(e) {
+        fetch(`http://localhost:3001/posts/${id}`, {
+            method: 'DELETE'
+        })
+        removePost(id)
+    }
 
     return (
-        <div>
+        <div className="post-card">
+            <div>
+                <Link to={`/posts/${id}/edit`}><button>Edit</button></Link>
+                <button onClick={handleDelete}>Delete</button>
+            </div>
         <div>
             <p><Link to ={`/users/${user_id}`}><strong>{username}</strong></Link></p>
             <Link to={`/posts/${id}`}><h2>{title}</h2></Link>

@@ -54,8 +54,7 @@ function UpdatePostForm ({removePost, currentUser, allPosts, setAllPosts}) {
     }
 
     return (
-        <div>
-            
+        <div> 
         <form onSubmit={handleSubmit}>
             <label>Title: </label><br/>
             <input type="text" name="title" onChange={handleChange}/><br/>

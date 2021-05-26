@@ -26,7 +26,7 @@ function PostCard ({ id, title, content, link, currentUser, media_type, removePo
                 <button onClick={handleDelete}>Delete</button>
             </div>
         <div>
-            <p><Link to ={`/users/${currentUser.id}`}><strong>{currentUser.username}</strong></Link></p>
+            <p><strong>Post by: {currentUser.username}</strong></p>
             <Link to={`/posts/${id}`}><h2>{title}</h2></Link>
         </div>
         {mediaContent}

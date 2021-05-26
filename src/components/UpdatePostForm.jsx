@@ -5,14 +5,7 @@ import { useHistory, useParams } from 'react-router';
 function UpdatePostForm ({removePost, currentUser, allPosts, setAllPosts}) {
     // let history =useHistory()
     const { id } = useParams()
-    // const [postData, setPostData] = useState({
-    //     title: "",
-    //     link: "",
-    //     media_type: "null",
-    //     content: "",
-    //     user_id: currentUser.id
-    // })
-
+  
     const [formData, setFormData] = useState({
         title: "",
         link: "",
@@ -25,7 +18,6 @@ function UpdatePostForm ({removePost, currentUser, allPosts, setAllPosts}) {
         fetch(`http://localhost:3001/posts/${id}`)
         .then(resp => resp.json())
         .then(data => {
-            // setPostData(data)
             setFormData(data)
         })
     }, [id])

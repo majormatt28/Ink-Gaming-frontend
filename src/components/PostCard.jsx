@@ -11,7 +11,8 @@ function PostCard ({ id, title, content, link, currentUser, media_type, removePo
         mediaContent = <div dangerouslySetInnerHTML={{__html: link}}></div>
     }
     
-    function handleDelete() {
+    function handleDelete(e) {
+        e.preventDefault()
         fetch(`http://localhost:3001/posts/${id}`, {
             method: 'DELETE'
         })

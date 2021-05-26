@@ -1,14 +1,14 @@
 import {Link} from 'react-router-dom'
 
-function PostCard ({ id, title, content, link, currentUser, media_type, removePost}) {
-    console.log(media_type)
+function PostCard ({ id, postTitle, postContent, postLink, user, postMediaType, removePost, postUser}) {
+    console.log("user", user)
     let mediaContent 
 
-    if (media_type === "image") {
-        mediaContent = <div><img src={link} alt={title}/></div>
+    if (postMediaType === "image") {
+        mediaContent = <div><img src={postLink} alt={postTitle}/></div>
     }
-    else if (media_type === "video") {
-        mediaContent = <div dangerouslySetInnerHTML={{__html: link}}></div>
+    else if (postMediaType === "video") {
+        mediaContent = <div dangerouslySetInnerHTML={{__html: postLink}}></div>
     }
     
     function handleDelete(e) {
@@ -26,11 +26,11 @@ function PostCard ({ id, title, content, link, currentUser, media_type, removePo
                 <button onClick={handleDelete}>Delete</button>
             </div>
         <div>
-            <p><strong>Post by: {currentUser.username}</strong></p>
-            <Link to={`/posts/${id}`}><h2>{title}</h2></Link>
+            <p><strong>Post by: {postUser.username}</strong></p>
+            <Link to={`/posts/${id}`}><h2>{postTitle}</h2></Link>
         </div>
         {mediaContent}
-        <p>{content}</p>
+        <p>{postContent}</p>
         </div>
     )
 }

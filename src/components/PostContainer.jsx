@@ -3,16 +3,21 @@ import CreatePost from './CreatePost'
 
 // import { useParams } from 'react-router';
 
-function PostContainer ({currentUser, allPosts, setAllPosts, removePost}) {
+function PostContainer ({user, allPosts, setAllPosts, removePost}) {
     console.log(allPosts)
     const postCards = allPosts.map(post => {
         console.log(post)
         return (
             <PostCard
-            currentUser={currentUser} 
+            user={user} 
             key={post.id}
+            postUser={post.user}
+            id={post.id}
+            postTitle={post.title}
+            postContent={post.content}
+            postLink={post.link}
+            postMediaType={post.media_type}
             removePost={removePost}
-            {...post}
             />
         )
     })
@@ -20,7 +25,7 @@ function PostContainer ({currentUser, allPosts, setAllPosts, removePost}) {
     return (
         <>
         <div>
-            <CreatePost allPosts={allPosts} setAllPosts={setAllPosts} currentUser={currentUser}/>
+            <CreatePost allPosts={allPosts} setAllPosts={setAllPosts} user={user}/>
         </div>
         <div className="post-container">
             {postCards}

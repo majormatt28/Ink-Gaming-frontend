@@ -11,9 +11,9 @@ import UpdatePostForm from './UpdatePostForm'
 
 
 function App() {
-  const [currentUser, setCurrentUser] = useState(null)
+  const [user, setUser] = useState(null)
   const [allPosts, setAllPosts] = useState([])
-  console.log("current user", currentUser)
+  console.log("user", user)
   
   useEffect (() => {
     const token = localStorage.getItem("token")
@@ -23,13 +23,21 @@ function App() {
         Authorization: `Bearer ${token}`,
       },
     })
-      .then(r => r.json())
+      .then(resp => {
+        return resp.json().then(data => {
+          if (resp.ok) {
+            return data
+          } else {
+            throw data
+          }
+        })
+      })
       .then(user => {
-        setCurrentUser(user);
+        setUser(user);
       })
   }, []);
 
-    console.log(currentUser)
+    console.log(user)
 
     console.log(allPosts)
 
@@ -47,7 +55,7 @@ function App() {
   return (
     <div className="App">
      
-     <NavBar currentUser={currentUser} setCurrentUser={setCurrentUser}/>
+     <NavBar User={user} setUser={setUser}/>
      
      <Switch>
       <Route exact path= "/">
@@ -55,27 +63,27 @@ function App() {
       </Route>
 
       <Route exact path="/posts/:id/">
-        <PostShow removePost={removePost} currentUser={currentUser}/>
+        <PostShow removePost={removePost} user={user}/>
       </Route>
 
       <Route exact path ="/posts/">
-      <PostContainer removePost={removePost} currentUser={currentUser} allPosts={allPosts} setAllPosts={setAllPosts}/>
+      <PostContainer removePost={removePost} user={user} allPosts={allPosts} setAllPosts={setAllPosts}/>
       </Route>
 
       <Route exact path ="/posts/:id/edit">
-        <UpdatePostForm removePost={removePost} currentUser={currentUser} allPosts={allPosts} setAllPosts={setAllPosts}/>
+        <UpdatePostForm removePost={removePost} user={user} allPosts={allPosts} setAllPosts={setAllPosts}/>
       </Route>
 
      <Route exact path="/signup">
-       <Signup setCurrentUser={setCurrentUser}/>
+       <Signup setUser={setUser}/>
      </Route>
      
      <Route exact path="/login">
-      <Login setCurrentUser={setCurrentUser} />
+      <Login setUser={setUser} />
      </Route>
 
       <Route exact path="/profile">
-      <Profile currentUser={currentUser} setCurrentUser={setCurrentUser} />
+      <Profile user={user} setCurrentUser={setUser} />
       </Route>
 
      </Switch>

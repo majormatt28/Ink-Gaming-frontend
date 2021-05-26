@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useHistory } from 'react-router-dom';
 
-function Login ({ setCurrentUser }) {
+function Login ({ setUser }) {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [errors, setErrors] = useState([])
@@ -12,12 +12,11 @@ function Login ({ setCurrentUser }) {
 
         console.log("username", username)
         console.log("password", password)
-        console.log(JSON.stringify({username, password}))
+        console.log(JSON.stringify({ username, password }))
 
         fetch("http://localhost:3001/login", {
             method: "POST",
-            headers: 
-                {
+            headers: {
                 "Content-Type": "application/json",
                 Accept: 'application/json', 
             },
@@ -32,14 +31,13 @@ function Login ({ setCurrentUser }) {
                 } else {
                     throw data
                 }
-            })
+            });
         })
         .then (userInfo => {
-            console.log(userInfo)
-            const {username, token} = userInfo
+            // console.log(userInfo)
+            const {user, token} = userInfo
             localStorage.setItem("token", token)
-            // localStorage.user_id = userInfo.id
-            setCurrentUser(username)
+            setUser(user)
             history.push('/posts')
         })
         .catch(error => {
@@ -52,14 +50,16 @@ function Login ({ setCurrentUser }) {
             <form onSubmit={handleSubmit}>
                 <h2>Login</h2>
                 <label>Username: </label>
-                <input type="text" 
+                <input 
+                type="text" 
                 name="username"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 />
                 <br/>
                 <label>Password: </label>
-                <input type="password"
+                <input 
+                type="password"
                 name="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}

@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-function CommentDetail ({comment, currentUser, commentRemoved, id}) {
+function CommentDetail ({comment, user,commentUserId, commentUser, commentRemoved, id}) {
     const [text, setText] = useState(comment)
     const [editComment, setEditComment] = useState(false)
 
-    console.log("username", currentUser)
+    console.log("username", user)
 
     function handleChange (e) {
         setText(e.target.value)
@@ -40,7 +40,7 @@ function CommentDetail ({comment, currentUser, commentRemoved, id}) {
 
     return (
         <div>
-            <p>Comment by: {currentUser.username} </p>
+            <p>Comment by: {commentUser.username} </p>
             {!editComment ? (
                 <p>{text}</p>
                 
@@ -51,8 +51,12 @@ function CommentDetail ({comment, currentUser, commentRemoved, id}) {
                 </form>
             )}
             <div>
-                <button onClick ={handleDelete}>Delete</button>
-                <button onClick ={handleClick}>Edit</button>
+                {commentUserId === user.id ? (
+                    <>
+                    <button onClick ={handleDelete}>Delete</button>
+                    <button onClick ={handleClick}>Edit</button>
+                    </>
+                ): null}
             </div>
         </div>
     );

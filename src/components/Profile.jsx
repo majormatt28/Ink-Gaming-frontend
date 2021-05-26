@@ -1,8 +1,8 @@
 import {useState} from "react"
 
-function Profile ({ currentUser ,setCurrentUser }) {
+function Profile ({ user ,setUser }) {
     const [formData, setFormData] = useState({
-        email: currentUser.email
+        email: user.email
     })
     
     function handleChange(e) {
@@ -25,7 +25,7 @@ function Profile ({ currentUser ,setCurrentUser }) {
         })
         .then(resp => resp.json())
         .then(user => {
-            setCurrentUser(user)
+            setUser(user)
         })
     }
 
@@ -33,7 +33,7 @@ function Profile ({ currentUser ,setCurrentUser }) {
 
     return (
         <form onSubmit={handleSubmit}>
-            <h1>{currentUser.username}'s Profile</h1>
+            <h1>{user.username}'s Profile</h1>
            <label>Email Address: </label>
            <textarea name="email" value={email} onChange={handleChange} />
            <input type="submit" value="Update" />

@@ -6,7 +6,7 @@ import { useParams } from "react-router";
 
 
 
-function PostShow ({removePost, currentUser}) {
+function PostShow ({removePost, user}) {
     const [postData, setPostData] = useState([])
     const [comments, setComments] = useState([])
     const [errors, setErrors] = useState("")
@@ -32,15 +32,20 @@ function PostShow ({removePost, currentUser}) {
 
     let commentCards
     const sortedComments = [...comments].sort((a,b) => b.id-a.id)
-    commentCards = sortedComments.map( comment => <CommentDetail currentUser={currentUser} {...comment} key={comment.id} commentRemoved={commentRemoved}/>)
+    commentCards = sortedComments.map( comment => <CommentDetail user={user} commentUserId={comment.user_id} commentUser={comment.user} comment={comment.comment} key={comment.id} id={comment.id} commentRemoved={commentRemoved}/>)
 
     const postCards = postData.map(post => {
         return (
             <PostCard
-            currentUser={currentUser}
+            user={user}
             key={post.id}
+            postUser={post.user}
+            id={post.id}
             removePost={removePost}
-            {...post}
+            postTitle={post.title}
+            postContent={post.content}
+            postLink={post.link}
+            postMediaType={post.media_type}
             />
         );
     })
@@ -54,7 +59,7 @@ function PostShow ({removePost, currentUser}) {
         </div>
         <div>
             <h3>Comment Section:</h3>
-            <CommentForm currentUser={currentUser} comments={comments} setComments={setComments} postId={id}/>
+            <CommentForm user={user} comments={comments} setComments={setComments} postId={id}/>
             <div>{commentCards}</div>
         </div>
         </div>}

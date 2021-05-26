@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useHistory } from "react-router";
 
-function Signup ({ setCurrentUser }) {
+function Signup ({ setUser }) {
     const [username, setUserName] = useState("")
     const [password, setPassword] = useState("")
     const [email, setEmail] = useState("")
@@ -27,12 +27,12 @@ function Signup ({ setCurrentUser }) {
                 } else {
                     throw data
                 }
-            })
+            });
         })
         .then (data => {
             const {user, token} = data
             localStorage.setItem("token", token)
-            setCurrentUser(user)
+            setUser(user)
             history.push("/login")
         })
         .catch(error => {

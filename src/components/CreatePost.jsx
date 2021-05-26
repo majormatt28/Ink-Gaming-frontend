@@ -1,12 +1,13 @@
 import { useState } from "react";
 
-function CreatePost ({allPosts, setAllPosts, currentUser}) {
+function CreatePost ({allPosts, setAllPosts, user}) {
+    console.log("createPost",user)
     const [formData, setFormData] = useState({
         title: "",
         link: "",
         media_type: "null",
         content: "",
-        user_id: currentUser.id
+        user_id: user.id
     })
     const [errors, setErrors] = useState([])
     // console.log(window.localStorage.getItem("currentUserId"))
@@ -38,7 +39,7 @@ function CreatePost ({allPosts, setAllPosts, currentUser}) {
                     link: "",
                     media_type: "null",
                     content: "",
-                    user_id: currentUser.id
+                    user_id: user.id
                 })
                 setErrors([])
             } else {

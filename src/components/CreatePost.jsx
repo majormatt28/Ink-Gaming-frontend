@@ -56,9 +56,9 @@ function CreatePost ({allPosts, setAllPosts, user}) {
             <input type="text" name="title" onChange={handleChange}/><br/>
             <label>Post Type: </label><br/>
             <select name="media_type" onChange={handleChange}>
+                <option value="text">Text</option>
                 <option value="video">Video</option>
                 <option value="image">Image</option>
-                <option value="text">Text</option>
             </select><br/>
             <label>Link: </label>
             <textarea 

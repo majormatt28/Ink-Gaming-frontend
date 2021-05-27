@@ -17,7 +17,7 @@ function App() {
   
   useEffect (() => {
     const token = localStorage.getItem("token")
-
+    console.log("local storage get",localStorage.getItem("token") )
     fetch ("http://localhost:3001/me", {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -55,7 +55,7 @@ function App() {
   return (
     <div className="App">
      
-     <NavBar User={user} setUser={setUser}/>
+     <NavBar user={user} setUser={setUser}/>
      
      <Switch>
       <Route exact path= "/">
@@ -83,7 +83,7 @@ function App() {
      </Route>
 
       <Route exact path="/profile">
-      <Profile user={user} setCurrentUser={setUser} />
+      <Profile user={user} setUser={setUser} />
       </Route>
 
      </Switch>

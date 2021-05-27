@@ -1,17 +1,17 @@
 import { NavLink, useHistory } from 'react-router-dom'
 
-function NavBar ({currentUser, setCurrentUser}) {
+function NavBar ({user, setUser}) {
     const history = useHistory()
     const logout = () => {
         localStorage.removeItem("token")
-        setCurrentUser(null)
+        setUser(null)
         history.push("/")
     }
 
     return (
         <div>
            <nav>
-               {currentUser? (
+               {user ? (
                    <div>
                    <NavLink className="button" to="/posts">
                        Main Page

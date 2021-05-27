@@ -18,8 +18,8 @@ function Profile ({ user ,setUser }) {
         fetch ("http://localhost:3001/me", {
             method: "PATCH",
             headers: {
-              "Content=Type": "application/json",
-              Authorization: `Bearer ${token}`
+              "Content-Type": "application/json",
+              "Authorization": `Bearer ${token}`
             },
             body: JSON.stringify(formData)
         })

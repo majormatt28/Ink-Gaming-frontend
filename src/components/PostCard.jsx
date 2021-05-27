@@ -1,4 +1,5 @@
 import {Link} from 'react-router-dom'
+import {YoutubePlayer} from "reactjs-media"
 
 function PostCard ({ id, postTitle, postContent, postLink, user, postMediaType, removePost, postUser}) {
     console.log("user", user)
@@ -8,7 +9,15 @@ function PostCard ({ id, postTitle, postContent, postLink, user, postMediaType, 
         mediaContent = <div><img src={postLink} alt={postTitle}/></div>
     }
     else if (postMediaType === "video") {
-        mediaContent = <div dangerouslySetInnerHTML={{__html: postLink}}></div>
+        mediaContent = 
+        <div>
+            <YoutubePlayer
+                src={postLink} // Reqiured
+                width={650}
+                height={600}
+            />
+        </div>   
+        // <div dangerouslySetInnerHTML={{__html: postLink}}></div>
     }
     
     function handleDelete(e) {

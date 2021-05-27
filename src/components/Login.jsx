@@ -33,10 +33,10 @@ function Login ({ setUser }) {
                 }
             });
         })
-        .then (userInfo => {
-            // console.log(userInfo)
-            const {user, token} = userInfo
+        .then (data => {
+            const {user, token} = data
             localStorage.setItem("token", token)
+            console.log("Local storage info", localStorage.setItem("token", token))
             setUser(user)
             history.push('/posts')
         })

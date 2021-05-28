@@ -1,6 +1,7 @@
 import { NavLink, useHistory } from 'react-router-dom'
 
 function NavBar ({user, setUser}) {
+    
     const history = useHistory()
     const logout = () => {
         localStorage.removeItem("token")
@@ -18,7 +19,7 @@ function NavBar ({user, setUser}) {
                    </NavLink>
                    <br/>
                    <NavLink className="button" to="/profile">
-                        Profile Page
+                        {user.username}
                    </NavLink>
                    <br/>
                    <button onClick={logout}>Logout</button>

@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-function CommentDetail ({comment, user,commentUserId, commentUser, commentRemoved, id}) {
+function CommentDetail ({comment, user, commentUserId, commentUser, commentRemoved, id}) {
     const [text, setText] = useState(comment)
     const [editComment, setEditComment] = useState(false)
-
-    console.log("username", user)
+    // const token = localStorage.getItem("token")
+    console.log("username", commentUser)
 
     function handleChange (e) {
         setText(e.target.value)

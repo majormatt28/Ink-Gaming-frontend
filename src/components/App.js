@@ -17,7 +17,7 @@ function App() {
   
   useEffect (() => {
     const token = localStorage.getItem("token")
-    console.log("local storage get",localStorage.getItem("token") )
+    // console.log("local storage get",localStorage.getItem("token") )
     fetch ("http://localhost:3001/me", {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -38,8 +38,6 @@ function App() {
   }, []);
 
     console.log(user)
-
-    console.log(allPosts)
 
     useEffect(() => {
         fetch(`http://localhost:3001/posts`)

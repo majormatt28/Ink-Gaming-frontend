@@ -2,15 +2,16 @@ import { useState } from "react";
 
 function CreatePost ({allPosts, setAllPosts, user}) {
     console.log("createPost",user)
+    
     const [formData, setFormData] = useState({
         title: "",
         link: "",
         media_type: "null",
-        content: "",
+        content: "", 
         user_id: user.id
     })
+    
     const [errors, setErrors] = useState([])
-    // console.log(window.localStorage.getItem("currentUserId"))
     function handleChange(e) {
         setFormData({
             ...formData,
@@ -21,7 +22,8 @@ function CreatePost ({allPosts, setAllPosts, user}) {
     function handleSubmit(e) {
         e.preventDefault()
         setFormData("")
-        console.log(formData)
+        // console.log(formData)
+        // token: localStorage.setItem("token", token)
         fetch(`http://localhost:3001/posts`, {
             method: 'POST',
             headers: {
@@ -39,7 +41,8 @@ function CreatePost ({allPosts, setAllPosts, user}) {
                     link: "",
                     media_type: "null",
                     content: "",
-                    user_id: user.id
+                    user_id: user.id,
+                    // token: localStorage.setItem("token", token)
                 })
                 setErrors([])
             } else {

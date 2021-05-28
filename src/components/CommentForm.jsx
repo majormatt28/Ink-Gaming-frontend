@@ -2,8 +2,8 @@ import { useState } from "react";
 
 function CommentForm ({comments, postId, setComments, user}) {
     const [formData, setFormData] = useState({
-        post_id: postId,
         user_id: user.id,
+        post_id: postId,
         comment: ""
     })
 

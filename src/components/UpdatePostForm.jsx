@@ -2,16 +2,16 @@ import { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router';
 
 
-function UpdatePostForm ({removePost, currentUser, allPosts, setAllPosts}) {
+function UpdatePostForm ({removePost, user, allPosts, setAllPosts}) {
     // let history =useHistory()
     const { id } = useParams()
-  
+    
     const [formData, setFormData] = useState({
         title: "",
         link: "",
         media_type: "null",
         content: "",
-        user_id: currentUser.id
+        user_id: user.id
     })
 
     useEffect(() => {

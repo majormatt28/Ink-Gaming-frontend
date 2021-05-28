@@ -33,7 +33,7 @@ function Signup ({ setUser }) {
             const {user, token} = data
             localStorage.setItem("token", token)
             setUser(user)
-            history.push("/login")
+            history.push("/posts")
         })
         .catch(error => {
             setErrors(error.errors)

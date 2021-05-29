@@ -3,11 +3,21 @@ import {Link} from 'react-router-dom'
 import {YoutubePlayer} from "reactjs-media"
 
 function PostCard ({ id, postTitle, postContent, postLink, user, postMediaType, removePost, postUser, postLikes, likesCounted}) {
-    console.log("user", user)
     const [currentLikes, setCurrentLikes] = useState(postLikes)
-    const [currentLikeCount, setCurrentLikeCount] = useState(likesCounted)
-    
+    const [currentLikeCount, setCurrentLikeCount] = useState(postLikes.length)
+    const [isItLiked, setIsItLiked] = useState(isAlreadyLiked())
+    console.log("user", user.id)
+    console.log(postUser)
+    console.log("post_id",id)
 
+    function isAlreadyLiked (){
+        if(postLikes.find(like => like.user_id === user.id)){
+            return true
+        }  else {
+            return false
+        } 
+    }
+    
     let mediaContent 
 
     if (postMediaType === "image") {
@@ -33,7 +43,7 @@ function PostCard ({ id, postTitle, postContent, postLink, user, postMediaType, 
         removePost(id)
     }
 
-    function handleLike(e) {
+    function handleLike() {
         fetch('http://localhost:3001/likes', {
             method: 'POST',
             headers: {
@@ -45,23 +55,30 @@ function PostCard ({ id, postTitle, postContent, postLink, user, postMediaType, 
         .then(resp => resp.json())
         .then(data => setCurrentLikes([...currentLikes, data]))
         setCurrentLikeCount(currentLikeCount => currentLikeCount + 1)
-
+        setIsItLiked(true)
     }
 
-    function handleDislike(e) {
-        const targetLikeId = currentLikes.find(like => like.user.id === postUser)
-        console.log("PostCard User",user)
-        fetch(`http://localhost:3001/likes/${targetLikeId}`, {
+    console.log("PostCard User",postUser)
+    function handleDislike() {
+        const targetLikeId = currentLikes.find(like => like.user_id === user.id)
+        console.log(targetLikeId)
+        fetch(`http://localhost:3001/likes/${targetLikeId.id}`, {
             method: "DELETE"
         })
-        
+        setIsItLiked(false)
+        setCurrentLikeCount(likeCountCurrent => likeCountCurrent - 1)
+        const sortedLikes = currentLikes.filter(like => like.id !== targetLikeId.id)
+        setCurrentLikes(sortedLikes)
     }
 
     return (
         <div className="post-card">
             <div>
+                {!isItLiked ? (
                 <button onClick={handleLike}>like</button>
+                ) : (
                 <button onClick={handleDislike}>dislike</button>
+                )}
                 <p>Likes:</p>
                 <p>{currentLikeCount}</p>
             </div>

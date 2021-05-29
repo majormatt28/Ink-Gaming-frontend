@@ -18,6 +18,7 @@ function PostContainer ({user, allPosts, setAllPosts, removePost}) {
             postLink={post.link}
             postMediaType={post.media_type}
             removePost={removePost}
+            postLikes={post.likes}
             />
         )
     })

@@ -46,6 +46,7 @@ function PostShow ({removePost, user}) {
             postContent={post.content}
             postLink={post.link}
             postMediaType={post.media_type}
+            postLikes={post.likes}
             />
         );
     })

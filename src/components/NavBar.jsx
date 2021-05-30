@@ -27,7 +27,7 @@ function NavBar ({user, setUser}) {
                ):(
                     <div>
                         <NavLink className="button" to="/login">
-                            Login
+                            {/* Login */}
                         </NavLink>
                         <NavLink className="button" to="/signup">
                             SignUp!

@@ -45,11 +45,13 @@ function Login ({ setUser }) {
     } 
 
     return (
-        <section>
-            <form onSubmit={handleSubmit}>
+        <div className="login-form-box">
+            <form onSubmit={handleSubmit} className="login-form">
+                <div className="login-form-content">
                 <h2>Login</h2>
                 <label>Username: </label>
                 <input 
+                className="username-input"
                 type="text" 
                 name="username"
                 value={username}
@@ -58,6 +60,7 @@ function Login ({ setUser }) {
                 <br/>
                 <label>Password: </label>
                 <input 
+                className="password-input"
                 type="password"
                 name="password"
                 value={password}
@@ -66,8 +69,9 @@ function Login ({ setUser }) {
                 {errors.map(error=><h3 style={{color:"black"}} key={error}>{error}</h3>)}
                 <br/>
                 <button type="submit">Login</button>
+                </div>
             </form>
-        </section>
+        </div>
     );
 }
 

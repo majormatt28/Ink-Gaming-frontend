@@ -56,12 +56,13 @@ function App() {
      <NavBar user={user} setUser={setUser}/>
      
      <Switch>
-      <Route exact path= "/">
-        <LandingPage />
-      </Route>
 
       <Route exact path="/posts/:id/">
         <PostShow removePost={removePost} user={user}/>
+      </Route>
+
+      <Route exact path= "/">
+        <LandingPage user={user} setUser={setUser}/>
       </Route>
 
       <Route exact path ="/posts/">

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function CreatePost ({allPosts, setAllPosts, user}) {
+function CreatePost ({allPosts, setAllPosts, user, setForm}) {
     console.log("createPost",user)
     
     const [formData, setFormData] = useState({
@@ -45,6 +45,7 @@ function CreatePost ({allPosts, setAllPosts, user}) {
                     // token: localStorage.setItem("token", token)
                 })
                 setErrors([])
+                setForm(false)
             } else {
                 setErrors(newPost)
             }
@@ -54,6 +55,7 @@ function CreatePost ({allPosts, setAllPosts, user}) {
 
     return (
         <div>
+            {errors.length > 0 && <div>{errors.display}</div>}
         <form onSubmit={handleSubmit}>
             <label>Title: </label><br/>
             <input type="text" name="title" onChange={handleChange}/><br/>

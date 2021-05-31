@@ -41,8 +41,9 @@ function Signup ({ setUser }) {
     }
 
     return (
-        <section>
-            <form onSubmit={handleSubmit}>
+        <div className="signup-form-box">
+            <form onSubmit={handleSubmit} className="signup-form">
+                <div className="signup-form-content">
                 <h2>SignUp Below!</h2>
                 <label>UserName: </label>
                 <input 
@@ -69,9 +70,10 @@ function Signup ({ setUser }) {
                 />
                 <br/>
                 {errors.map(error => <h3 key={error} style={{color:"black"}}>{error}</h3>)}
-                <button type="submit">Sign Up!</button>
+                <button type="submit" className="signup-btn">Sign Up!</button>
+                </div>
             </form>
-        </section>
+        </div>
     );
 }
 

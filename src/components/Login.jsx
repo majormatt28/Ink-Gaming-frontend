@@ -68,7 +68,7 @@ function Login ({ setUser }) {
                 />
                 {errors.map(error=><h3 style={{color:"black"}} key={error}>{error}</h3>)}
                 <br/>
-                <button type="submit">Login</button>
+                <button type="submit" className="login-btn">Login</button>
                 </div>
             </form>
         </div>

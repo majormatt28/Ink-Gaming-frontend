@@ -14,24 +14,28 @@ function NavBar ({user, setUser}) {
            <nav>
                {user ? (
                    <div>
-                   <NavLink className="button" to="/posts">
+                   <NavLink className="main-page-button" to="/posts">
                        Main Page
                    </NavLink>
                    <br/>
-                   <NavLink className="button" to="/profile">
+                   <NavLink className="profile-button" to="/profile">
                         {user.username}
                    </NavLink>
                    <br/>
-                   <button onClick={logout}>Logout</button>
+                   <button onClick={logout} className="logout-button">Logout</button>
                    </div>
                ):(
                     <div>
-                        <NavLink className="button" to="/login">
-                            {/* Login */}
+                        <div className="home=page-button">
+                        <NavLink className="home-page-button" to="/">
+                            Welcome Page
                         </NavLink>
-                        <NavLink className="button" to="/signup">
+                        </div>
+                        <div className="signup-button-div">
+                        <NavLink className="signup-page-button" to="/signup">
                             SignUp!
                         </NavLink>
+                        </div>
                     </div>
                )}
             </nav> 

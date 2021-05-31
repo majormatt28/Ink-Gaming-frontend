@@ -1,10 +1,17 @@
 import PostCard from './PostCard'
 import CreatePost from './CreatePost'
+import { useState } from 'react'
 
 // import { useParams } from 'react-router';
 
 function PostContainer ({user, allPosts, setAllPosts, removePost}) {
-    console.log(allPosts)
+    // console.log(allPosts)
+    const [form, setForm] = useState(false)
+
+    function toggleForm () {
+        setForm(form => !form)
+    }
+
     const postCards = allPosts.map(post => {
         console.log(post)
         return (
@@ -26,7 +33,14 @@ function PostContainer ({user, allPosts, setAllPosts, removePost}) {
     return (
         <>
         <div>
+            {form ? (
+                <>
             <CreatePost allPosts={allPosts} setAllPosts={setAllPosts} user={user}/>
+            <button onClick={toggleForm}>Undo</button>
+            </>
+            ) : (
+                <button onClick={toggleForm}>Creat a Post</button>
+            )}
         </div>
         <div className="post-container">
             {postCards}

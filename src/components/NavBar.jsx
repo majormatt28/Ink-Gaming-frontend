@@ -1,4 +1,5 @@
 import { NavLink, useHistory } from 'react-router-dom'
+import logo from "./Ink-Gaming Logo.png"
 
 function NavBar ({user, setUser}) {
     
@@ -12,6 +13,7 @@ function NavBar ({user, setUser}) {
     return (
         <div>
            <nav>
+            <img src={logo} className="Ink-Gaming-logo" alt="logo"/>
                {user ? (
                    <div>
                    <NavLink className="main-page-button" to="/posts">

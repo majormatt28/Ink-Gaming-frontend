@@ -52,19 +52,19 @@ function PostShow ({removePost, user}) {
     })
 
     return (
-        <>
+        <div className="post-show">
         {errors ? <div><h1>{errors}</h1></div> :
         <div>
         <div> 
         {postCards}
         </div>
-        <div>
+        <div className="comment-section">
             <h3>Comment Section:</h3>
             <CommentForm user={user} comments={comments} setComments={setComments} postId={id}/>
             <div>{commentCards}</div>
         </div>
         </div>}
-        </>
+        </div>
     );
 }
 

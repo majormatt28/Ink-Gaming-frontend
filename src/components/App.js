@@ -13,7 +13,8 @@ import UpdatePostForm from './UpdatePostForm'
 function App() {
   const [user, setUser] = useState(null)
   const [allPosts, setAllPosts] = useState([])
-  console.log("user", user)
+  
+  // console.log("user", user)
   
   useEffect (() => {
     const token = localStorage.getItem("token")
@@ -37,14 +38,14 @@ function App() {
       })
   }, []);
 
-    console.log(user)
+    // console.log(user)
 
     useEffect(() => {
         fetch(`http://localhost:3001/posts`)
         .then(r => r.json())
         .then(setAllPosts)
     }, [])
-
+    console.log(allPosts)
     function removePost(id) {
         const filteredPosts = allPosts.filter(post => post.id !==id)
         setAllPosts(filteredPosts)

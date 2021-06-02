@@ -1,11 +1,17 @@
 import { useState } from "react";
 import { useHistory } from 'react-router-dom';
+import Checkbox from '@material-ui/core/Checkbox';
 
 function Login ({ setUser }) {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [errors, setErrors] = useState([])
     const history = useHistory()
+    const [checked, setChecked] = useState(true);
+
+    const handleChange = (event) => {
+    setChecked(event.target.checked);
+  };
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -67,7 +73,13 @@ function Login ({ setUser }) {
                 onChange={(e) => setPassword(e.target.value)}
                 />
                 {errors.map(error=><h3 style={{color:"black"}} key={error}>{error}</h3>)}
-                <br/>
+                {/* <br/> */}
+                <Checkbox
+                checked={checked}
+                onChange={handleChange}
+                inputProps={{ 'aria-label': 'primary checkbox' }}
+                />
+                <text>Remember me?</text>
                 <button type="submit" className="login-btn">Login</button>
                 </div>
             </form>

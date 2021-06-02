@@ -1,10 +1,11 @@
-import { NavLink, useHistory } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
+// import logo from "./Ink-Gaming Logo.png"
 
-function LandingPage ({user, setUser}) {
-    const history = useHistory()
+function LandingPage () {
     
     return (
        <div>
+        {/* <img src={logo} className="Ink-Gaming-logo" alt="logo"/> */}
     <input type="checkbox" id="screen" name="screen"/>
         <main className="nintendo-switch">
         <aside className="actions left">

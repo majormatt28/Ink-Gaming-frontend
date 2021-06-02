@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 function CommentDetail ({comment, user, commentUserId, commentUser, commentRemoved, id}) {
     const [text, setText] = useState(comment)

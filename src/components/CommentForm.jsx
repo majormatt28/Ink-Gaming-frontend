@@ -34,9 +34,9 @@ function CommentForm ({comments, postId, setComments, user}) {
     }
 
     return (
-        <div>
+        <div className="new-comments">
             <h2>Leave a comment here:</h2>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="comment-form">
                 <label htmlFor="comment">Comment: </label>
                 <textarea 
                 name="comment" 

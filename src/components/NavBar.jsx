@@ -1,5 +1,5 @@
 import { NavLink, useHistory } from 'react-router-dom'
-import logo from "./Ink-Gaming Logo.png"
+import logo from "./Ink-Gaming-Logo.png"
 
 function NavBar ({user, setUser}) {
     

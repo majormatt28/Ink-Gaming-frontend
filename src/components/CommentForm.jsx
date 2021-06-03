@@ -18,6 +18,7 @@ function CommentForm ({comments, postId, setComments, user}) {
 
     function handleSubmit(e) {
         e.preventDefault()
+        setFormData({...formData, comment:""})
         fetch(`http://localhost:3001/comments/`, {
             method: 'POST',
             headers: {
@@ -31,7 +32,6 @@ function CommentForm ({comments, postId, setComments, user}) {
             console.log({newComment})
             const updatedComments = [...comments, newComment]
             setComments(updatedComments)
-            setFormData("")
         })
     }
 
@@ -54,7 +54,7 @@ function CommentForm ({comments, postId, setComments, user}) {
                 }}
                 />
                 <br/>
-                <Button style={{borderRadius: "40px"}} variant="contained" type="submit">Submit</Button>
+                <Button style={{borderRadius: "40px", background: "midnightblue", backgroundImage: "linear-gradient(to bottom, midnightblue, #2980b9)", color: "#ffffff"}} variant="contained" type="submit">Submit</Button>
             </form>
         </div>
     );

@@ -139,10 +139,11 @@ function UpdatePostForm ({user, allPosts, setAllPosts}) {
             </TextField>
             <br/>
             <Button
-                    size="small"
-                    variant="contained"
-                    type='submit'
-                    >Update Post</Button>
+             size="small"
+             variant="contained"
+             type='submit'
+            >
+            Update Post</Button>
             </Card>
         </Form>
             </Paper>

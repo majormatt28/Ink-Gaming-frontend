@@ -9,6 +9,9 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import EditIcon from '@material-ui/icons/Edit';
 import Avatar from '@material-ui/core/Avatar';
 import { purple } from '@material-ui/core/colors';
+import { Button } from "@material-ui/core";
+import TextareaAutosize from '@material-ui/core/TextareaAutosize';
+
 
 const useStyles = makeStyles({
     root: {
@@ -16,11 +19,7 @@ const useStyles = makeStyles({
       backgroundColor: "black",
       border: "1px solid gainsboro",
       marginTop: "6px",
-    },
-    bullet: {
-      display: 'inline-block',
-      margin: '0 2px',
-      transform: 'scale(0.8)',
+      fontSize: "1.60rem"
     },
     title: {
       fontSize: 14,
@@ -84,11 +83,24 @@ function CommentDetail ({comment, user, commentUserId, commentUser, commentRemov
             <Typography variant="body2" component="p">
             {!editComment ? (
                 <p>{text}</p>
-
             ) : (
                 <form onSubmit={handleSubmit}>
-                    <textarea name="comment" value= {text} onChange={handleChange}></textarea>
-                    <input type="submit"/>
+                    {/* <textarea name="comment" value= {text} onChange={handleChange}></textarea> */}
+                    <TextareaAutosize
+                        name="comment" 
+                        label="Comment"
+                        value={text}
+                        onChange={handleChange}
+                        rowsMin={3}
+                        placeholder="What are your thoughts..."
+                        style={{    
+                            height: "166px",
+                            margin: "0px",
+                            width: "432px",
+                        }}
+                        />
+                        <br/>
+                    <Button style={{borderRadius: "40px", background: "midnightblue", backgroundImage: "linear-gradient(to bottom, midnightblue, #2980b9)", color: "#ffffff"}} variant="contained" type="submit">Submit</Button>
                 </form>
             )}
             </Typography>

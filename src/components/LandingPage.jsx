@@ -1,7 +1,16 @@
-import { NavLink } from 'react-router-dom'
+// import { useState } from 'react';
+import { useHistory } from 'react-router-dom'
 // import logo from "./Ink-Gaming Logo.png"
 
+
+
 function LandingPage () {
+    // const [animate, setAnimate] = useState(true)
+    const history = useHistory()
+    
+    function animation() {
+        setTimeout(() => history.push("/login"), 700)
+    }
     
     return (
        <div>
@@ -23,13 +32,12 @@ function LandingPage () {
   </aside>
   <label className="middle" htmlFor="screen">
       <div className="glass"></div>
-      <NavLink className="screen" to="/login">
+      <div className="screen" onClick={animation}>
       <span>Click here to <br/>
         <strong>Login</strong>
       </span>
-      </NavLink>
+      </div>
   </label>
-  
   <aside className="actions right">
     <i className="plus">+</i>
     <div className="analogic">
@@ -44,8 +52,7 @@ function LandingPage () {
     <div className="circle"></div>
   </aside>
 </main>
-    </div>    
-    
+    </div>      
     );
 }
 

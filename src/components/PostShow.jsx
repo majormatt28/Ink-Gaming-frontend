@@ -59,7 +59,6 @@ function PostShow ({removePost, user}) {
         {postCards}
         </div>
         <div className="comment-section">
-            <h3>Comment Section:</h3>
             <CommentForm user={user} comments={comments} setComments={setComments} postId={id}/>
             <div>{commentCards}</div>
         </div>

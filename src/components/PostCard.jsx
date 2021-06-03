@@ -153,7 +153,7 @@ function PostCard ({ id, postTitle, postContent, postLink, user, postMediaType, 
             // onClick={seePostShow}
              avatar={
           <Avatar aria-label="recipe" className={classes.avatar}>
-            {postUser.username.substring(0,2)}
+            {postUser.username.substring(0,2).toUpperCase()}
           </Avatar>
         }
         action={
@@ -178,7 +178,7 @@ function PostCard ({ id, postTitle, postContent, postLink, user, postMediaType, 
       </div>
         <br/>
         <div className="post-by">
-        Post by: {postUser.username}
+        Post by: {postUser.username.charAt(0).toUpperCase() + postUser.username.slice(1)}
         </div>
         <div className="media-content">
         {mediaContent}

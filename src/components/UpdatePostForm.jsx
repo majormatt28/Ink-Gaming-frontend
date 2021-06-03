@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
 import { makeStyles } from '@material-ui/core/styles'
 import { Form } from 'semantic-ui-react'
+import { Card, Paper } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -12,9 +13,19 @@ const useStyles = makeStyles((theme) => ({
             width: '25ch',
         },
     },
+    paper: {
+        border: "3px solid #000;",
+        padding: "16px 32px 24px;",
+        boxShadow: "0px 3px 5px -1px rgb(0 0 0 / 20%), 0px 5px 8px 0px rgb(0 0 0 / 14%), 0px 1px 14px 0px rgb(0 0 0 / 12%);",
+        backgroundColor: "midnightblue;",
+        width: "32rem;",
+        position: "relative;",
+        right: "-64rem;",
+        top: "16rem;"
+    },
 }))
 
-function UpdatePostForm ({removePost, user, allPosts, setAllPosts}) {
+function UpdatePostForm ({user, allPosts, setAllPosts}) {
     const classes = useStyles()
     const history = useHistory()
     const { id } = useParams()
@@ -75,7 +86,13 @@ function UpdatePostForm ({removePost, user, allPosts, setAllPosts}) {
 
     return (
         <div> 
-        <Form className={classes.root} noValidate autoComplete="off" onSubmit={handleSubmit} >
+            <Paper className={classes.paper}>
+        <Form 
+        className={classes.root} 
+        noValidate autoComplete="off" 
+        onSubmit={handleSubmit} 
+        >
+            <Card>
                 <div>
                     <TextField id="outlined-basic"
                         label="title"
@@ -126,7 +143,9 @@ function UpdatePostForm ({removePost, user, allPosts, setAllPosts}) {
                     variant="contained"
                     type='submit'
                     >Update Post</Button>
+            </Card>
         </Form>
+            </Paper>
         </div>
     );
 }

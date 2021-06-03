@@ -21,7 +21,7 @@ function NavBar ({user, setUser}) {
                    </NavLink>
                    <br/>
                    <NavLink className="profile-button" to="/profile">
-                        {user.username}
+                        {user.username.charAt(0).toUpperCase() + user.username.slice(1)}
                    </NavLink>
                    <br/>
                    <button onClick={logout} className="logout-button">Logout</button>

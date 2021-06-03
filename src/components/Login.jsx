@@ -8,10 +8,15 @@ function Login ({ setUser }) {
     const [errors, setErrors] = useState([])
     const history = useHistory()
     const [checked, setChecked] = useState(true);
+    // const [animate, setAnimate] = useState(true)
+
+    // function animation() {
+    //     setTimeout(() => setAnimate(false), 650)
+    // }
 
     const handleChange = (event) => {
     setChecked(event.target.checked);
-  };
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -72,7 +77,7 @@ function Login ({ setUser }) {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 />
-                {errors.map(error=><h3 style={{color:"black"}} key={error}>{error}</h3>)}
+                {errors.map(error=><h3 style={{color:"red"}} key={error}>{error}</h3>)}
                 {/* <br/> */}
                 <Checkbox
                 checked={checked}
@@ -80,7 +85,7 @@ function Login ({ setUser }) {
                 inputProps={{ 'aria-label': 'primary checkbox' }}
                 />
                 <text>Remember me?</text>
-                <button type="submit" className="login-btn">Login</button>
+                <button type="submit" className="login-btn">Login</button> 
                 </div>
             </form>
         </div>

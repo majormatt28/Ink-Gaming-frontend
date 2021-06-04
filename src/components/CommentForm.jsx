@@ -43,7 +43,7 @@ function CommentForm ({comments, postId, setComments, user}) {
                 <TextareaAutosize
                 name="comment" 
                 label="Comment"
-                value={formData.content}
+                value={formData.comment}
                 onChange={handleChange}
                 rowsMin={3}
                 placeholder="What are your thoughts..."

@@ -10,10 +10,11 @@ A web application that brings game sharing and community to the forefront. Users
   * React.js
   * Material-UI
   * Custom CSS
+  * JWT
   
 * Backend
   * Rails 5 API
-  * JWT
+  * JWT (authentication system)
   * PostgreSQL database
 
 ## Core Functions

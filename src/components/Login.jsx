@@ -8,11 +8,6 @@ function Login ({ setUser }) {
     const [errors, setErrors] = useState([])
     const history = useHistory()
     const [checked, setChecked] = useState(true);
-    // const [animate, setAnimate] = useState(true)
-
-    // function animation() {
-    //     setTimeout(() => setAnimate(false), 650)
-    // }
 
     const handleChange = (event) => {
     setChecked(event.target.checked);

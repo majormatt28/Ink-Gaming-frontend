@@ -74,7 +74,6 @@ function UpdatePostForm ({user, allPosts, setAllPosts}) {
         .then(postUpdate => {
             updateAllPosts(id,postUpdate)
             history.push("/posts")
-            // console.log(postUpdate)
         })
     }
 

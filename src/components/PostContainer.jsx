@@ -22,13 +22,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 function PostContainer ({user, allPosts, setAllPosts, removePost}) {
-    // console.log(allPosts)
-    // const [form, setForm] = useState(false)
     const [open, setOpen] = useState(false)
-
-    // function toggleForm () {
-    //     setForm(true)
-    // }
     const handleOpen = () => { setOpen(true) }
     const handleClose = () => { setOpen(false) }
     const classes = useStyles()
@@ -71,7 +65,6 @@ function PostContainer ({user, allPosts, setAllPosts, removePost}) {
                         </div>
                     </Fade>
                 </Modal>
-            {/* <CreatePost allPosts={allPosts} setAllPosts={setAllPosts} user={user} setForm={setForm}/> */}
         </div>
         <div className="post-container">
             {postCards}

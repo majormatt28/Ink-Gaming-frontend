@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Form } from 'semantic-ui-react'
-// import { useHistory } from 'react-router-dom'
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
 import { makeStyles } from '@material-ui/core/styles'
@@ -35,8 +34,7 @@ function CreatePost ({allPosts, setAllPosts, user, onClose}) {
     function handleSubmit(e) {
         e.preventDefault()
         setFormData("")
-        // console.log(formData)
-        // token: localStorage.setItem("token", token)
+       
         fetch(`http://localhost:3001/posts`, {
             method: 'POST',
             headers: {
@@ -57,7 +55,6 @@ function CreatePost ({allPosts, setAllPosts, user, onClose}) {
                     user_id: user.id,
                 })
                 setErrors([])
-                // setForm(false)
             } else {
                 setErrors(newPost)
             }

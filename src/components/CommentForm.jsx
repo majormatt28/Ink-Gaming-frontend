@@ -39,7 +39,6 @@ function CommentForm ({comments, postId, setComments, user}) {
         <div className="new-comments">
             <h2>Leave a comment here:</h2>
             <form onSubmit={handleSubmit} className="comment-form">
-                {/* <label htmlFor="comment">Comment: </label> */}
                 <TextareaAutosize
                 name="comment" 
                 label="Comment"

@@ -73,7 +73,6 @@ function Login ({ setUser }) {
                 onChange={(e) => setPassword(e.target.value)}
                 />
                 {errors.map(error=><h3 style={{color:"red"}} key={error}>{error}</h3>)}
-                {/* <br/> */}
                 <Checkbox
                 checked={checked}
                 onChange={handleChange}

@@ -37,9 +37,6 @@ function CommentDetail ({comment, user, commentUserId, commentUser, commentRemov
     const [editComment, setEditComment] = useState(false)
     const classes = useStyles();
     
-    // const token = localStorage.getItem("token")
-    // console.log("username", commentUser)
-
     function handleChange (e) {
         setText(e.target.value)
     }
@@ -85,7 +82,6 @@ function CommentDetail ({comment, user, commentUserId, commentUser, commentRemov
                 <p>{text}</p>
             ) : (
                 <form onSubmit={handleSubmit}>
-                    {/* <textarea name="comment" value= {text} onChange={handleChange}></textarea> */}
                     <TextareaAutosize
                         name="comment" 
                         label="Comment"

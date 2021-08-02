@@ -1,11 +1,6 @@
-// import { useState } from 'react';
 import { useHistory } from 'react-router-dom'
-// import logo from "./Ink-Gaming Logo.png"
-
-
 
 function LandingPage () {
-    // const [animate, setAnimate] = useState(true)
     const history = useHistory()
     
     function animation() {
@@ -14,7 +9,6 @@ function LandingPage () {
     
     return (
        <div>
-        {/* <img src={logo} className="Ink-Gaming-logo" alt="logo"/> */}
     <input type="checkbox" id="screen" name="screen"/>
         <main className="nintendo-switch">
         <aside className="actions left">

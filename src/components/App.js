@@ -14,11 +14,8 @@ function App() {
   const [user, setUser] = useState(null)
   const [allPosts, setAllPosts] = useState([])
   
-  // console.log("user", user)
-  
   useEffect (() => {
     const token = localStorage.getItem("token")
-    // console.log("local storage get",localStorage.getItem("token") )
     fetch ("http://localhost:3001/me", {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -37,8 +34,6 @@ function App() {
         setUser(user);
       })
   }, []);
-
-    // console.log(user)
 
     useEffect(() => {
         fetch(`http://localhost:3001/posts`)

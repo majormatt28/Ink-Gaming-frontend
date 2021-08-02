@@ -2,24 +2,18 @@ import { useState } from 'react'
 import {useHistory} from 'react-router-dom'
 import {YoutubePlayer} from "reactjs-media"
 import { makeStyles } from '@material-ui/core/styles';
-// import clsx from 'clsx';
-// import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
-// import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
-// import Collapse from '@material-ui/core/Collapse';
 import Avatar from '@material-ui/core/Avatar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { purple } from '@material-ui/core/colors';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-// import Button from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-// import { useParams } from 'react-router';
 const useStyles = makeStyles((theme) => ({
     root: {
       maxWidth: 345,
@@ -60,9 +54,6 @@ function PostCard ({ id, postTitle, postContent, postLink, user, postMediaType, 
     const [isItLiked, setIsItLiked] = useState(isAlreadyLiked())
     const classes = useStyles();
     const history = useHistory()
-    // console.log("user", user.id)
-    // console.log(postUser)
-    // console.log("post_id",id)
     
     function isAlreadyLiked (){
         if(postLikes.find(like => like.user_id === user.id)){
@@ -112,7 +103,6 @@ function PostCard ({ id, postTitle, postContent, postLink, user, postMediaType, 
         setCurrentLikeCount(currentLikeCount => currentLikeCount + 1)
         setIsItLiked(true)
     }
-    // console.log("PostCard User",postUser)
     function handleDislike() {
         const targetLikeId = currentLikes.find(like => like.user_id === user.id)
         console.log(targetLikeId)
@@ -150,7 +140,6 @@ function PostCard ({ id, postTitle, postContent, postLink, user, postMediaType, 
             <div className={classes.title}>
             <CardHeader
             className={classes.title}
-            // onClick={seePostShow}
              avatar={
           <Avatar aria-label="recipe" className={classes.avatar}>
             {postUser.username.substring(0,2).toUpperCase()}

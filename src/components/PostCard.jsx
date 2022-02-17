@@ -83,14 +83,14 @@ function PostCard ({ id, postTitle, postContent, postLink, user, postMediaType, 
     
     function handleDelete(e) {
         e.preventDefault()
-        fetch(`http://localhost:3001/posts/${id}`, {
+        fetch(`https://nameless-tor-13132.herokuapp.com/posts/${id}`, {
             method: 'DELETE'
         })
         removePost(id)
     }
 
     function handleLike() {
-        fetch('http://localhost:3001/likes', {
+        fetch('https://nameless-tor-13132.herokuapp.com/likes', {
             method: 'POST',
             headers: {
                 "Content-Type": 'application/json',

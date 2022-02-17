@@ -15,7 +15,7 @@ function Profile ({ user ,setUser }) {
     function handleSubmit(e) {
         e.preventDefault()
         const token = localStorage.getItem("token")
-        fetch ("http://localhost:3001/me", {
+        fetch ("https://nameless-tor-13132.herokuapp.com/me", {
             method: "PATCH",
             headers: {
               "Content-Type": "application/json",

@@ -20,7 +20,7 @@ function Login ({ setUser }) {
         console.log("password", password)
         console.log(JSON.stringify({ username, password }))
 
-        fetch("http://localhost:3001/login", {
+        fetch("https://nameless-tor-13132.herokuapp.com/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

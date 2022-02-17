@@ -106,7 +106,7 @@ function PostCard ({ id, postTitle, postContent, postLink, user, postMediaType, 
     function handleDislike() {
         const targetLikeId = currentLikes.find(like => like.user_id === user.id)
         console.log(targetLikeId)
-        fetch(`http://localhost:3001/likes/${targetLikeId.id}`, {
+        fetch(`https://nameless-tor-13132.herokuapp.com/likes/${targetLikeId.id}`, {
             method: "DELETE"
         })
         setIsItLiked(false)

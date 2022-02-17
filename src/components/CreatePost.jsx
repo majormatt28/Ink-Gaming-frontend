@@ -35,7 +35,7 @@ function CreatePost ({allPosts, setAllPosts, user, onClose}) {
         e.preventDefault()
         setFormData("")
        
-        fetch(`http://localhost:3001/posts`, {
+        fetch(`https://nameless-tor-13132.herokuapp.com/posts`, {
             method: 'POST',
             headers: {
                 "Content-Type": 'application/json',

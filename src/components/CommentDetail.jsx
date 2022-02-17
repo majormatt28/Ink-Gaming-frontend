@@ -42,7 +42,7 @@ function CommentDetail ({comment, user, commentUserId, commentUser, commentRemov
     }
 
     function handleDelete() {
-        fetch(`http://localhost:3001/comments/${id}`, {
+        fetch(`https://nameless-tor-13132.herokuapp.com/comments/${id}`, {
             method: 'DELETE'
         })
         setEditComment(false)
@@ -51,7 +51,7 @@ function CommentDetail ({comment, user, commentUserId, commentUser, commentRemov
 
     function handleSubmit(e) {
         e.preventDefault()
-        fetch(`http://localhost:3001/comments/${id}`, {
+        fetch(`https://nameless-tor-13132.herokuapp.com/comments/${id}`, {
             method: 'PATCH',
             headers: {
                 "Content-Type": 'application/json',

@@ -13,7 +13,7 @@ function PostShow ({removePost, user}) {
     let { id } = useParams()
 
     useEffect (() => {
-        fetch(`http://localhost:3001/posts/${id}`)
+        fetch(`https://nameless-tor-13132.herokuapp.com/posts/${id}`)
         .then(r => r.json())
         .then(data => {
             if (data.error) {

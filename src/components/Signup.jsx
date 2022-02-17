@@ -11,7 +11,7 @@ function Signup ({ setUser }) {
 
     function handleSubmit(e) {
         e.preventDefault()
-        fetch("http://localhost:3001/signup", {
+        fetch("https://nameless-tor-13132.herokuapp.com/signup", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

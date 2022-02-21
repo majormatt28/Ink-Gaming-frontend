@@ -20,7 +20,7 @@ function Login ({ setUser }) {
         console.log("password", password)
         console.log(JSON.stringify({ username, password }))
 
-        fetch("https://ink-gaming.herokuapp.com/login", {
+        fetch("https://obscure-caverns-42124.herokuapp.com/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

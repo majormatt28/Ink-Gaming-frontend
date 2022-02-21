@@ -16,7 +16,7 @@ function App() {
   
   useEffect (() => {
     const token = localStorage.getItem("token")
-    fetch ("https://ink-gaming.herokuapp.com/me", {
+    fetch ("https://obscure-caverns-42124.herokuapp.com/me", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -36,7 +36,7 @@ function App() {
   }, []);
 
     useEffect(() => {
-        fetch(`https://ink-gaming.herokuapp.com/posts`)
+        fetch(`https://obscure-caverns-42124.herokuapp.com/posts`)
         .then(r => r.json())
         .then(setAllPosts)
     }, [])

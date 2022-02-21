@@ -15,7 +15,7 @@ function Profile ({ user ,setUser }) {
     function handleSubmit(e) {
         e.preventDefault()
         const token = localStorage.getItem("token")
-        fetch ("https://ink-gaming.herokuapp.com/me", {
+        fetch ("https://obscure-caverns-42124.herokuapp.com/me", {
             method: "PATCH",
             headers: {
               "Content-Type": "application/json",

@@ -11,7 +11,7 @@ function Signup ({ setUser }) {
 
     function handleSubmit(e) {
         e.preventDefault()
-        fetch("https://ink-gaming.herokuapp.com/signup", {
+        fetch("https://obscure-caverns-42124.herokuapp.com/signup", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

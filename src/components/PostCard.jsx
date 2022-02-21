@@ -90,7 +90,7 @@ function PostCard ({ id, postTitle, postContent, postLink, user, postMediaType, 
     }
 
     function handleLike() {
-        fetch('https://ink-gaming.herokuapp.com/likes', {
+        fetch('https://obscure-caverns-42124.herokuapp.com/likes', {
             method: 'POST',
             headers: {
                 "Content-Type": 'application/json',

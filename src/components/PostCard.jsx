@@ -83,14 +83,14 @@ function PostCard ({ id, postTitle, postContent, postLink, user, postMediaType, 
     
     function handleDelete(e) {
         e.preventDefault()
-        fetch(`https://nameless-tor-13132.herokuapp.com/posts/${id}`, {
+        fetch(`https://ink-gaming.herokuapp.com/posts/${id}`, {
             method: 'DELETE'
         })
         removePost(id)
     }
 
     function handleLike() {
-        fetch('https://nameless-tor-13132.herokuapp.com/likes', {
+        fetch('https://ink-gaming.herokuapp.com/likes', {
             method: 'POST',
             headers: {
                 "Content-Type": 'application/json',
@@ -106,7 +106,7 @@ function PostCard ({ id, postTitle, postContent, postLink, user, postMediaType, 
     function handleDislike() {
         const targetLikeId = currentLikes.find(like => like.user_id === user.id)
         console.log(targetLikeId)
-        fetch(`https://nameless-tor-13132.herokuapp.com/likes/${targetLikeId.id}`, {
+        fetch(`https://ink-gaming.herokuapp.com/likes/${targetLikeId.id}`, {
             method: "DELETE"
         })
         setIsItLiked(false)

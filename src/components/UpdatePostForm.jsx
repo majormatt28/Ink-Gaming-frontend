@@ -39,7 +39,7 @@ function UpdatePostForm ({user, allPosts, setAllPosts}) {
     })
 
     useEffect(() => {
-        fetch(`https://nameless-tor-13132.herokuapp.com/posts/${id}`)
+        fetch(`https://ink-gaming.herokuapp.com/posts/${id}`)
         .then(resp => resp.json())
         .then(data => {
             setFormData(data)
@@ -62,7 +62,7 @@ function UpdatePostForm ({user, allPosts, setAllPosts}) {
 
     function handleSubmit(e) {
         e.preventDefault()
-        fetch(`https://nameless-tor-13132.herokuapp.com/posts/${id}`, {
+        fetch(`https://ink-gaming.herokuapp.com/posts/${id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',

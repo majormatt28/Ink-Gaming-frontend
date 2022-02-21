@@ -39,7 +39,7 @@ function UpdatePostForm ({user, allPosts, setAllPosts}) {
     })
 
     useEffect(() => {
-        fetch(`https://ink-gaming.herokuapp.com/posts/${id}`)
+        fetch(`https://obscure-caverns-42124.herokuapp.com/posts/${id}`)
         .then(resp => resp.json())
         .then(data => {
             setFormData(data)
@@ -62,7 +62,7 @@ function UpdatePostForm ({user, allPosts, setAllPosts}) {
 
     function handleSubmit(e) {
         e.preventDefault()
-        fetch(`https://ink-gaming.herokuapp.com/posts/${id}`, {
+        fetch(`https://obscure-caverns-42124.herokuapp.com/posts/${id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',

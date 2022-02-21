@@ -13,7 +13,7 @@ function PostShow ({removePost, user}) {
     let { id } = useParams()
 
     useEffect (() => {
-        fetch(`https://ink-gaming.herokuapp.com/posts/${id}`)
+        fetch(`https://obscure-caverns-42124.herokuapp.com/posts/${id}`)
         .then(r => r.json())
         .then(data => {
             if (data.error) {

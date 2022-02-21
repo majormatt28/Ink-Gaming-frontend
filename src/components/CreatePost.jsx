@@ -35,7 +35,7 @@ function CreatePost ({allPosts, setAllPosts, user, onClose}) {
         e.preventDefault()
         setFormData("")
        
-        fetch(`https://ink-gaming.herokuapp.com/posts`, {
+        fetch(`https://obscure-caverns-42124.herokuapp.com/posts`, {
             method: 'POST',
             headers: {
                 "Content-Type": 'application/json',

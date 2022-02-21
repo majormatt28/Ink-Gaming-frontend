@@ -83,7 +83,7 @@ function PostCard ({ id, postTitle, postContent, postLink, user, postMediaType, 
     
     function handleDelete(e) {
         e.preventDefault()
-        fetch(`https://ink-gaming.herokuapp.com/posts/${id}`, {
+        fetch(`https://obscure-caverns-42124.herokuapp.com/posts/${id}`, {
             method: 'DELETE'
         })
         removePost(id)
@@ -106,7 +106,7 @@ function PostCard ({ id, postTitle, postContent, postLink, user, postMediaType, 
     function handleDislike() {
         const targetLikeId = currentLikes.find(like => like.user_id === user.id)
         console.log(targetLikeId)
-        fetch(`https://ink-gaming.herokuapp.com/likes/${targetLikeId.id}`, {
+        fetch(`https://obscure-caverns-42124.herokuapp.com/likes/${targetLikeId.id}`, {
             method: "DELETE"
         })
         setIsItLiked(false)

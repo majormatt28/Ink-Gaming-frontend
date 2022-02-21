@@ -19,7 +19,7 @@ function CommentForm ({comments, postId, setComments, user}) {
     function handleSubmit(e) {
         e.preventDefault()
         setFormData({...formData, comment:""})
-        fetch(`https://ink-gaming.herokuapp.com/comments/`, {
+        fetch(`https://obscure-caverns-42124.herokuapp.com/comments/`, {
             method: 'POST',
             headers: {
                 "Content-Type": 'application/json',
